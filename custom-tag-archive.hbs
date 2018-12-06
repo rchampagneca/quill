@@ -1,0 +1,36 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+<section class="content-area">
+	<div class="container">
+		{{>cover-archive}}
+        <div class="row">
+            {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+                {{#foreach tags}}
+                <div class="col-md-4 col-sm-6">
+                    <div class="post post-tile">
+                        {{#if feature_image}}
+                        <a href="{{url absolute="true"}}" class="permalink">
+                            <div class="featured-image" style="background-image: url({{feature_image}})">
+                                <div class="overlay align-center">
+                                    <div class="cell">
+                                        <span>{{plural count.posts empty=(t "0 Post") singular=(t "1 Post") plural=(t "% Posts")}} <i class="fa fa-long-arrow-right"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {{/if}}
+                        <div class="content-wrap align-center">
+                            <span class="category">
+                                <a href="{{url}}">{{name}}</a>
+                            </span>
+                            {{#if description}}
+                            <div class="description">{{description}}</div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/foreach}}
+            {{/get}}
+        </div>
+	</div>
+</section>

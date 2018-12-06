@@ -1,0 +1,53 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+<section class="content-area">
+    <div class="container">
+        {{>cover-archive}}
+        <div class="row">
+            {{#get "users" limit="all" include="count.posts" order="count.posts desc"}}
+            {{#foreach users}}
+            <div class="col-md-6 col-sm-12">
+                <div class="post-tile">
+                    <div class="cover author-cover align-center {{#if cover_image}}has-image{{/if}}" {{#if cover_image}} style="background-image: url({{cover_image}});"{{/if}}>
+                        <div class="overlay">
+                            <div class="avatar-wrap">
+                                <a href="{{url}}">
+                                    {{#if profile_image}}
+                                    <img src="{{profile_image}}" alt="Author image" class="avatar">
+                                    {{else}}
+                                    <img src="{{asset  "images/default-user-image.jpg"}}" alt="Author image" class="avatar">
+                                    {{/if}}
+                                </a>
+                            </div>
+                            <h3 class="author-name">
+                                <a href="{{url}}">{{name}}</a>
+                            </h3>
+                            <div class="meta-info">
+                                <span class="post-count"> {{plural count.posts empty=(t "0 Post") singular=(t "1 Post") plural=(t "% Posts")}}</span>
+                                {{#if location}}
+                                    -- <span class="loaction">{{location}}</span>
+                                {{/if}}
+                            </div>
+                            {{#if bio}}
+                            <div class="description">{{{bio}}}</div>
+                            {{/if}}
+                            <ul class="author-social">
+                                {{#if twitter}}
+                                <li><a href="{{twitter_url twitter}}"><i class="fa fa-twitter"></i></a></li>
+                                {{/if}}
+                                {{#if facebook}}
+                                <li><a href="{{facebook_url facebook}}"><i class="fa fa-facebook"></i></a></li>
+                                {{/if}}
+                                {{#if website}}
+                                <li><a href="{{website}}" target="_blank"><i class="fa fa-globe"></i></a></li>
+                                {{/if}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+</section>

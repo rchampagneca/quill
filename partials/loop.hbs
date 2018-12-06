@@ -1,0 +1,27 @@
+<div class="row">
+	{{#foreach posts}}
+	<!-- start post entry -->
+	<div class="col-md-4 col-sm-6">
+		<article class="post post-tile">
+			{{#if feature_image}}
+			<a href="{{url absolute="true"}}" class="permalink">
+				<div class="featured-image" style="background-image: url({{feature_image}})">
+					<div class="overlay align-center">
+						<div class="cell">
+							<span>{{t "Full Story"}} <i class="fa fa-long-arrow-right"></i></span>
+						</div>
+					</div>
+				</div>
+			</a>
+			{{/if}}
+			<div class="content-wrap align-center">
+				{{#if tags }}
+				<span class="category">{{tags separator=" "}}</span>
+				{{/if}}
+				<h2 class="title h3"><a href="{{url absolute="true"}}">{{title}}</a></h2>
+			</div>
+		</article>
+	</div>
+	{{/foreach}}
+</div>
+{{pagination}}

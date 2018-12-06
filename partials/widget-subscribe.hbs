@@ -1,0 +1,16 @@
+{{#if @labs.subscribers}}
+<!-- strat newsletter widget -->
+<div class="widget">
+	<h4 class="widget-title">{{t "Subscribe"}}</h4>
+	<div class="content newsletter">
+        <p>{{t "Get our latest article delivered to your email box."}}</p>
+        {{subscribe_form
+            form_class="validate"
+            input_class="form-control required email"
+            button_class="form-control btn btn-primary"
+            placeholder=(t "Enter your email...")
+        }}
+    </div>
+</div>
+<!-- end newsletter widget -->
+{{/if}}

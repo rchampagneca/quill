@@ -1,0 +1,54 @@
+<div class="prev-next-wrap row clearfix {{#next_post}}has-next{{/next_post}} {{#prev_post}}has-prev{{/prev_post}}">
+    {{#next_post}}
+    <div class="col-sm-6">
+        <div class="next-post post-tile">
+            <div class="prev-next-link align-center">
+                <a class="" href="{{url absolute="true"}}">{{t "Previous Post"}}</a>
+            </div>
+            {{#if feature_image}}
+            <a href="{{url absolute="true"}}" class="permalink">
+                <div class="featured-image" style="background-image: url({{feature_image}})">
+                    <div class="overlay align-center">
+                        <div class="cell">
+                            <span>{{t "Full Story"}} <i class="fa fa-long-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/if}}
+            <div class="content-wrap align-center">
+                {{#if tags}}
+                <span class="category">{{tags separator=" "}}</span>
+                {{/if}}
+                <h2 class="title h3"><a href="{{url absolute="true"}}">{{title}}</a></h2>
+            </div>
+        </div>
+    </div>
+    {{/next_post}}
+    {{#prev_post}}
+    <div class="col-sm-6">
+        <div class="prev-post post-tile">
+            <div class="prev-next-link align-center">
+                <a class="" href="{{url absolute="true"}}">{{t "Next Post"}}</a>
+            </div>
+            {{#if feature_image}}
+            <a href="{{url absolute="true"}}" class="permalink">
+                <div class="featured-image" style="background-image: url({{feature_image}})">
+                    <div class="overlay align-center">
+                        <div class="cell">
+                            <span>{{t "Full Story"}} <i class="fa fa-long-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {{/if}}
+            <div class="content-wrap align-center">
+                {{#if tags}}
+                <span class="category">{{tags separator=" "}}</span>
+                {{/if}}
+                <h2 class="title h3"><a href="{{url absolute="true"}}">{{title}}</a></h2>
+            </div>
+        </div>
+    </div>
+    {{/prev_post}}
+</div>

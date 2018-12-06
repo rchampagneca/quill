@@ -1,0 +1,32 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+<!-- start post -->
+{{#post}}
+<section class="content-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="post post-single page-template">
+					{{#if feature_image}}
+					<div class="featured-image" style="background-image: url({{feature_image}})">
+					</div>
+					{{/if}}
+					<div class="small-container">
+						{{#if tags}}
+		                <div class="category">
+		                	{{tags separator=" "}}
+		                </div>
+		                {{/if}}
+						<h1 class="title">{{title}}</h1>
+						<div class="post-content">
+							{{content}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{{/post}}
+<!-- end container -->

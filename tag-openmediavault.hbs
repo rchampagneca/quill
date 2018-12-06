@@ -1,0 +1,57 @@
+{{!< default}} {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+<!-- start post listing -->
+<section class="content-area">
+  <div class="container">
+    <div class="cover-wrap">
+      <div class="cover tag-cover align-center {{#if tag.feature_image}}has-image" style="background-image: url({{tag.feature_image}});" {{else}} no-image"{{/if}}> <div class="overlay">
+        <h3 class="tag-title">{{t "Tag"}}: {{tag.name}}</h3>
+        <div class="meta-info">
+          <span>{{t "Total"}} {{plural pagination.total empty=(t '0 Post') singular=(t '1 Post') plural=(t '% Posts')}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="post-content">
+        {{#get "posts" slug='tag-openmediavault' limit='1'}}
+          {{! Loop through our articles collection }}
+          {{#foreach posts}}
+            <p class="description">{{content}}</p>
+          {{/foreach}}
+        {{/get}}
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    {{#foreach posts}}
+      <!-- start post entry -->
+      <div class="col-md-4 col-sm-6">
+        <article class="post post-tile">
+          {{#if feature_image}}
+            <a href="{{url absolute="true"}}" class="permalink">
+              <div class="featured-image" style="background-image: url({{feature_image}})">
+                <div class="overlay align-center">
+                  <div class="cell">
+                    <span>{{t "Full Story"}} <i class="fa fa-long-arrow-right"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          {{/if}}
+          <div class="content-wrap align-center">
+            {{#if tags }}
+              <span class="category">{{tags separator=" "}}</span>
+            {{/if}}
+            <h2 class="title h3"><a href="{{url absolute="true"}}">{{title}}</a></h2>
+          </div>
+        </article>
+      </div>
+    {{/foreach}}
+  </div>
+  {{pagination}}
+  </div>
+</section>
+<!-- end container -->

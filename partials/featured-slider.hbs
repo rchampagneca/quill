@@ -1,0 +1,35 @@
+<!-- start featured slider -->
+{{#get "posts" limit="5" filter="featured:true" include="tags"}}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="featured-slider-wrap">
+				<div class="featured-slider">
+					{{#foreach posts}}
+					<article class="slide clearfix" data-number="{{@number}}">
+						{{#if feature_image}}
+						<div class="featured-image">
+							<a href="{{url absolute="true"}}" style="background-image: url({{feature_image}})">
+							</a>
+						</div>
+						{{/if}}
+						<div class="content-wrap pull-left">
+							{{#if tags}}
+							<span class="category">{{tags separator=" "}}</span>
+							{{/if}}
+							<h2 class="title"><a href="{{url absolute="true"}}">{{title}}</a></h2>
+							<div class="meta-info">
+								<time class="date" datetime="{{date format="YYYY-MM-DD"}}"><a href="{{url avsolute="true"}}">{{date format="DD MMMM YYYY"}}</a></time>>
+							</div>
+							<a href="{{url absolute="true"}}" class="permalink">{{t "Full Story"}} <i class="fa fa-long-arrow-right"></i></a>
+						</div>
+					</article>
+					{{/foreach}}
+				</div>
+				<div class="arrow-wrap"></div>
+			</div>
+		</div>
+	</div>
+</div>
+{{/get}}
+<!-- end featured slider -->

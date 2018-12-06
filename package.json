@@ -1,0 +1,39 @@
+{
+    "name": "quill",
+    "description": "Minimal blog and magazine Ghost theme",
+    "demo": "http://mino.gbjsolution.com",
+    "version": "2.3.0",
+    "engines": {
+        "ghost": ">=2.0.0"
+    },
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "author": {
+        "name": "GBJ solution",
+        "email": "gbjsolution@gmail.com",
+        "url": "http://gbjsolution.com"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blogs",
+			"Magazine Layouts",
+			"Business Blog"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme",
+        "personal",
+        "minimal"
+    ],
+    "config": {
+        "posts_per_page": 9
+    }
+}
+
+

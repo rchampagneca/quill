@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{{#post}}
+{{#has tag="#en"}}<html lang="en">{{else}}<html lang="fr">{{/has}}
+{{/post}}
+<head>
+    {{! Document Settings }}
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	{{! Page Meta }}
+	<title>{{meta_title}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TWSF5T');</script>
+		<!-- End Google Tag Manager -->
+    <!-- stylesheets -->
+	{{! Styles'n'Scripts }}
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,700%7CRoboto:400,700" rel="stylesheet">
+
+	<link rel="stylesheet" href="{{asset "css/slick.css"}}">
+	<link rel="stylesheet" href="{{asset "css/bootstrap.min.css"}}">
+	<link rel="stylesheet" href="{{asset "css/font-awesome.min.css"}}">
+	<link rel="stylesheet" type="text/css" href="{{asset "css/hl-styles/atom-one-dark.css"}}">
+	<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css">
+	{{! inserting theme config partial}}
+	{{> config}}
+	{{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+		{{> google_tag_manager}}
+    {{! insert header partial}}
+    {{> header}}
+
+    {{{body}}}
+
+    {{! insert footer partial}}
+    {{> footer}}
+	{{! scripts}}
+	<script type="text/javascript">
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function () {
+	    var s = document.createElement('script'); s.async = true;
+	    s.type = 'text/javascript';
+	    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+	}());
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="{{asset "js/bootstrap.min.js"}}"></script>
+	<script src="{{asset "js/plugins.js"}}"></script>
+	<script src="{{asset "js/main.js"}}"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+	<script>window.addEventListener("load",function(){window.cookieconsent.initialise({"palette":{"popup":{"background":"#aa0000","text":"#ffdddd"},"button":{"background":"#ff0000"}},"content":{"message":"En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies. ","dismiss":"J'ai compris !","link":"Pour en savoir plus ...","href":"https://rchampagne.ca/politique_de_cookies/"}})});</script>
+	{{ghost_foot}}
+</body>
+</html>

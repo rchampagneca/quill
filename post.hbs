@@ -1,0 +1,50 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+<!-- start post -->
+{{#post}}
+<section class="content-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="post post-single">
+					{{#if feature_image}}
+					<div class="featured-image single" style="background-image: url({{feature_image}})">
+					</div>
+					{{/if}}
+					<div class="small-container">
+						{{#if tags}}
+		                <div class="category">
+		                	{{tags separator=" "}}
+		                </div>
+		                {{/if}}
+						<h1 class="title">{{title}}</h1>
+						<div class="post-meta">
+							{{#foreach authors}}
+				                <a class="author" href="{{url}}">
+									{{#if profile_image}}
+				                	<img src="{{profile_image}}" alt="{{name}}" class="avartar">
+				                	{{/if}}
+				                	<span class="name">{{name}}</span>
+				                </a>
+							{{/foreach}}
+							<span class="name">- {{t "Published"}}</span><time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+							<span class="name">- {{t "Revised"}}</span><time class="date" datetime="{{date updated_at format="YYYY-MM-DD"}}">{{date updated_at format="DD MMMM YYYY"}}</time>
+						</div>
+						<div class="post-content">
+							{{content}}
+						</div>
+					</div>
+				</div>
+				<div class=" post small-container">
+					{{> share-links}}
+					<hr>
+					{{> prev-next}}
+					{{> comment}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{{/post}}
+<!-- end container -->

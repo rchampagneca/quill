@@ -1,0 +1,15 @@
+<!-- start pagination -->
+<div class="pagination-wrap align-center clearfix" role="navigation">
+	<div class="page-nav pull-left align-left">
+	{{#if prev}}
+	<a class="newer-posts" href="{{page_url prev}}"> <i class="fa fa-long-arrow-left fa-fw"></i> <span>{{t "Newer Posts"}}</span></a>
+	{{/if}}
+	</div>
+	<span class="page-number">{{t "Page {page} of {pages}" page=page pages=pages}}</span>
+	<div class="page-nav pull-right align-right">
+	{{#if next}}
+	<a class="older-posts" href="{{page_url next}}"><span>{{t "Older Posts"}}</span> <i class="fa fa-long-arrow-right fa-fw"></i></a>
+	{{/if}}
+	</div>
+</div>
+<!-- end pagination -->
